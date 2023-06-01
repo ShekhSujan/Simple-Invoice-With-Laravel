@@ -2,6 +2,7 @@
 <style>
     .invoice-container .invoice-header .invoice-logo img {
       max-width: 150px;
+      color: #000000 !important;
     }
     .title-noborupa{
       color:#074694;

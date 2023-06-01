@@ -80,14 +80,14 @@
                                                                 <b>Invoice</b>
                                                             </div>
                                                             <div class="col-xl-8 col-lg-8 col-md-12 col-sm-12 col-12 p-1">
-                                                                <input type="text" name="invoice" value=""
+                                                                <input type="text" readonly name="invoice" value="{{isset($lastInvoice->id)?$lastInvoice->id:1 + 1}}"
                                                                     placeholder="Invoice Number" style="width:100%;" />
                                                             </div>
                                                             <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12 p-1">
                                                                 <b>Date</b>
                                                             </div>
                                                             <div class="col-xl-8 col-lg-8 col-md-12 col-sm-12 col-12 p-1">
-                                                                <input type="date" name="date" value=""
+                                                                <input type="date" name="date" value="{{date('Y-m-d')}}"
                                                                     style="width:100%;" />
                                                             </div>
                                                         </div>
@@ -181,24 +181,7 @@
                                                                     <th colspan="2"></th>
                                                                     <th><span id="total_qty">0</span> Items</th>
                                                                     <th>Total</th>
-                                                                    <th colspan="2"><span id="total_amt">0</span> $</th>
-                                                                </tr>
-                                                                <tr>
-                                                                    <th colspan="3"></th>
-                                                                    <th>Tax 13%</th>
-                                                                    <th colspan="2"><span id="total_tax">0</span> $
-                                                                    </th>
-                                                                </tr>
-                                                                <tr>
-                                                                    <th colspan="3"></th>
-                                                                    <th>Subtotal</th>
-                                                                    <th colspan="2"><span id="total_sub">0</span> $
-                                                                    </th>
-                                                                </tr>
-                                                                <tr>
-                                                                    <th>HST</th>
-                                                                    <th colspan="5"><input type="text"
-                                                                            name="hst" placeholder="HST" /></th>
+                                                                    <th colspan="2"><span id="total_amt">0</span></th>
                                                                 </tr>
                                                                 <tr>
                                                                     <th colspan="6"><input type="submit"

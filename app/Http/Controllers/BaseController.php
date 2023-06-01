@@ -37,6 +37,12 @@ class BaseController extends Controller
         } else {
             $ext2 = $request->input("ext2");
         }
+        $photo3 = $request->file("signature");
+        if ($photo3) {
+            $ext3 = strtolower($photo3->getClientOriginalExtension());
+        } else {
+            $ext3 = $request->input("ext3");
+        }
 
         $arr = [
             "title" => $request->input('title'),
@@ -45,11 +51,13 @@ class BaseController extends Controller
             "address" => $request->input('address'),
             "logo" => $ext,
             "favicon" => $ext2,
+            "signature" => $ext3,
         ];
 
         if (Setting::where('id', $id)->update($arr)) {
             $path = "assets/images/logo/{$id}-logo.{$ext}";
             $path2 = "assets/images/logo/{$id}-favicon.{$ext2}";
+            $path3 = "assets/images/logo/{$id}-signature.{$ext3}";
             if ($photo) {
                 if (is_file($path)) {
                     unlink($path);
@@ -61,6 +69,12 @@ class BaseController extends Controller
                     unlink($path2);
                 }
                 $photo2->move("assets/images/logo/", "{$id}-favicon.{$ext2}");
+            }
+            if ($photo3) {
+                if (is_file($path3)) {
+                    unlink($path3);
+                }
+                $photo3->move("assets/images/logo/", "{$id}-signature.{$ext3}");
             }
             Toastr::success('Logo Updated Successfully', 'Success');
         } else {

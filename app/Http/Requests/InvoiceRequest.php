@@ -33,7 +33,6 @@ class InvoiceRequest extends FormRequest
             'subtotal' => 'required',
             'total_qty' => 'required',
             'product' => 'required',
-            'serial_no' => 'required',
             'single_qty' => 'required',
             'unit_price' => 'required',
             'amount' => 'required',

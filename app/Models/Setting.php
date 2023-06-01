@@ -16,5 +16,6 @@ class Setting extends Model
         'address',
         'favicon',
         'logo',
+        'signature',
     ];
 }

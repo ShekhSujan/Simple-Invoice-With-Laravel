@@ -17,11 +17,13 @@ class InvoiceController extends Controller
         $data['title'] = "Invoice List";
         $data['allInvoice'] = Order::get();
         $data['dataCount'] = Order::count();
+
         return view('invoice.index')->with($data);
     }
     public function create()
     {
         $data['title'] = "New Invoice";
+        $data['lastInvoice'] = Order::latest('id')->first();
         return view('invoice.create')->with($data);
     }
 

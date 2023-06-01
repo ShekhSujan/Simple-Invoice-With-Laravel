@@ -27,25 +27,26 @@
                                             <input type="hidden" name="id" value="{{ $selected->id }}">
                                             <input type="hidden" name="ext" value="{{ $selected->logo }}">
                                             <input type="hidden" name="ext2" value="{{ $selected->favicon }}">
+                                            <input type="hidden" name="ext3" value="{{ $selected->signature }}">
                                             <div class="row gutters">
                                                 <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                                                     <div class="form-group row">
-                                                        <label for="" class="col-sm-2" for="input-title">Enter Title
+                                                        <label for="" class="col-sm-2" for="input-title">Authorized By
                                                             <span class="text-danger">*</span></label>
                                                         <div class="col-sm-8">
                                                             <input type="text" name="title" class="form-control"
-                                                                value="{{$selected->title}}" placeholder="Enter Title"
+                                                                value="{{ $selected->title }}" placeholder="Enter Title"
                                                                 required />
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                                                     <div class="form-group row">
-                                                        <label for="" class="col-sm-2" for="input-email">Email
+                                                        <label for="" class="col-sm-2" for="input-email">Designation
                                                             <span class="text-danger">*</span></label>
                                                         <div class="col-sm-8">
                                                             <input type="text" name="email" class="form-control"
-                                                                value="{{$selected->email}}" placeholder="Enter Email"
+                                                                value="{{ $selected->email }}" placeholder="Enter Email"
                                                                 required />
                                                         </div>
                                                     </div>
@@ -56,7 +57,7 @@
                                                             <span class="text-danger">*</span></label>
                                                         <div class="col-sm-8">
                                                             <input type="text" name="phone" class="form-control"
-                                                                value="{{$selected->phone}}" placeholder="Enter Phone"
+                                                                value="{{ $selected->phone }}" placeholder="Enter Phone"
                                                                 required />
                                                         </div>
                                                     </div>
@@ -67,7 +68,7 @@
                                                             <span class="text-danger">*</span></label>
                                                         <div class="col-sm-8">
                                                             <input type="text" name="address" class="form-control"
-                                                                value="{{$selected->address}}" placeholder="Enter Address"
+                                                                value="{{ $selected->address }}" placeholder="Enter Address"
                                                                 required />
                                                         </div>
                                                     </div>
@@ -93,6 +94,18 @@
                                                                 name="favicon" type="file"><br>
                                                             <img src="{{ asset("assets/images/logo/{$selected->id}-favicon.{$selected->favicon}") }}"
                                                                 alt="No Image" id="imgload2" width="80" />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                                                    <div class="form-group row">
+                                                        <label for="" class="col-sm-2" for="input-favicon">Signature
+                                                            <span class="text-danger">[100 * 100]*</span></label>
+                                                        <div class="col-sm-8">
+                                                            <input class="form-control form-control-alt" id="imgInp3"
+                                                                name="signature" type="file"><br>
+                                                            <img src="{{ asset("assets/images/logo/{$selected->id}-signature.{$selected->signature}") }}"
+                                                                alt="No Image" id="imgload3" width="80" />
                                                         </div>
                                                     </div>
                                                 </div>

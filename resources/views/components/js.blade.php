@@ -38,6 +38,23 @@
         readURLb(this);
     });
 </script>
+<script>
+    function readURLc(input) {
+
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function(e) {
+                $('#imgload3').attr('src', e.target.result);
+            }
+
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+
+    $("#imgInp3").change(function() {
+        readURLc(this);
+    });
+</script>
 <script src="{{ asset('assets/toastr/toastr.min.js') }}"></script>
 
 {!! Toastr::message() !!}

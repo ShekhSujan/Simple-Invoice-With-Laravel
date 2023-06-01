@@ -62,8 +62,7 @@
     </style>
     <style media="screen">
         * {
-            /* font-family: 'Segoe UI'; */
-            font: 500 1rem 'Open Sans', sans-serif;
+            font-family: 'Segoe UI';
         }
 
         th {
@@ -127,7 +126,7 @@
         @page {
             size: A4 portrait;
             /* size: portrait;
-                                                                                                                                    margin: 0px; */
+                                                                                margin: 0px; */
 
 
         }
@@ -145,8 +144,6 @@
         @media print {
             body * {
                 visibility: hidden;
-                font: 500 1rem 'Open Sans', sans-serif;
-                color: #000000;
             }
 
             .custom-table>tbody td {
@@ -182,14 +179,6 @@
             #hide-button {
                 display: none;
             }
-
-            .bottom-footer {
-                position: fixed;
-                bottom: 0;
-                left: 0;
-                width: 100%;
-            }
-
         }
     </style>
     <script>
@@ -252,13 +241,13 @@
                                                             <span class="doted_underline">{{ $allInvoice->name }}</span>
                                                         </p>
                                                     </div>
-                                                    <div class="col-xl-8 col-lg-8 col-md-8 col-sm-8 col-8">
+                                                    <div class="col-xl-7 col-lg-7 col-md-7 col-sm-7 col-7">
                                                         <p class="clr text-left">
                                                             <span class=" font-weight-bold pr-1">Address: </span>
                                                             <span class="doted_underline"> {{ $allInvoice->address }}</span>
                                                         </p>
                                                     </div>
-                                                    <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-4">
+                                                    <div class="col-xl-5 col-lg-5 col-md-5 col-sm-5 col-5">
                                                         <p class="clr text-left">
                                                             <span class=" font-weight-bold pr-1">Phone: </span>
                                                             <span class="doted_underline"> {{ $allInvoice->phone }}</span>
@@ -302,11 +291,10 @@
                                                 <thead>
                                                     <tr>
                                                         <th>SL</th>
-                                                        <th style="width:65%;" class="font-weight-bold">Description /
-                                                            Specification</th>
-                                                        <th style="width:10%;" class="font-weight-bold">Qty</th>
-                                                        <th style="width:10%;"class="font-weight-bold">Price</th>
-                                                        <th style="width:15%;"class="font-weight-bold">Amount</th>
+                                                        <th style="width:65%;">Description / Specification</th>
+                                                        <th style="width:10%;">Qty</th>
+                                                        <th style="width:10%;">Price</th>
+                                                        <th style="width:15%;">Amount</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody id="myTable">
@@ -323,16 +311,15 @@
                                                 <tfoot>
                                                     <tr>
                                                         <td colspan="3"></td>
-                                                        <td class="clr font-weight-bold">Qty</td>
-                                                        <td class="clr font-weight-bold"><span id="total_qty"
-                                                                class="font-weight-bold">{{ $allInvoice->total_qty }}</span>
-                                                        </td>
+                                                        <td class="clr">Qty</td>
+                                                        <td class="clr"><span
+                                                                id="total_qty">{{ $allInvoice->total_qty }}</span></td>
                                                     </tr>
                                                     <tr>
                                                         <td colspan="3"></td>
-                                                        <td class="clr font-weight-bold">SubTotal</td>
-                                                        <td class="clr"><span id="total_amt"
-                                                                class="font-weight-bold">{{ $allInvoice->total }}</span>
+                                                        <td class="clr">SubTotal</td>
+                                                        <td class="clr"><span
+                                                                id="total_amt">{{ $allInvoice->total }}</span>
                                                         </td>
                                                     </tr>
 
@@ -340,45 +327,37 @@
                                             </table>
                                         </div>
                                     </div>
+                                    <style>
+                                        .footer {
+                                            padding-top: 400px !important;
+                                            text-align: center;
 
-                                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 bottom-footer">
-                                        <div class="row gutters">
-                                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12"
-                                                style="padding-left:9rem; margin-bottom:;">
-                                                <img src="{{ asset("assets/images/logo/{$allSetting->id}-signature.{$allSetting->signature}") }}"
-                                                    style="width:15%;">
-                                            </div>
-                                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6"
-                                                style="padding-left:8rem">
-
-                                                <p>...............................................................</p>
-                                                <h5 class="font-weight-bold">Authorized Signature</h5>
-                                                <p><span class="font-weight-bold">Name :</span> {{ $allSetting->title }}</p>
-                                                <p><span class="font-weight-bold">Designation :</span> {{ $allSetting->email }}</p>
-                                                <p><span class="font-weight-bold">Phone :</span> {{ $allSetting->phone }}</p>
-                                            </div>
-                                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6"
-                                                style="padding-left:8rem">
-                                                <p>...............................................................</p>
-                                                <h5 class="font-weight-bold">Customer’s Signature</h5>
-                                                <p><span class="font-weight-bold">Name :</span> {{ $allInvoice->name }}
-                                                </p>
-                                                <p><span class="font-weight-bold">Phone :</span> {{ $allInvoice->phone }}
-                                                </p>
-                                                <p><span class="font-weight-bold">Address :</span>
-                                                    {{ $allInvoice->address }}</p>
-                                            </div>
-
-                                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 pt-5 pl-1">
-                                                <p class="d-flex justify-content-center align-items-center py-3 print-bg"
-                                                    style="background: #535353; color:#fff;">Phone: 02-58156934, 01711-432377,
-                                                    01999-939222, 01713876687,Email:  arraafigroup@gmail.com,Web:
-                                                     www.arraafigroup.com
-                                                </p>
-                                            </div>
-                                        </div>
+                                        }
+                                    </style>
+                                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6 pt-5"
+                                        style="padding-top: 7rem!important;">
+                                        <p>...............................................................</p>
+                                        <h5>Authorized Signature</h5>
+                                        <p>Name : Borhan Uddin</p>
+                                        <p>Designation : HR Admin</p>
+                                        <p>Phone : 01894944145</p>
+                                    </div>
+                                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6 pt-5"
+                                        style="padding-top: 7rem!important;">
+                                        <p>...............................................................</p>
+                                        <h5>Customer’s Signature</h5>
+                                        <p>Name : {{ $allInvoice->name }}</p>
+                                        <p>Phone : {{ $allInvoice->phone }}</p>
+                                        <p>Address : {{ $allInvoice->address }}</p>
                                     </div>
 
+                                    <div class="col-xl-12col-lg-12col-md-12col-sm-12col-12pt-5 footer">
+                                        <p><span class="font-weight-bold">Phone:</span>02-58156934, 01711-432377,
+                                            01999-939222, 01713876687,
+                                            <span class="font-weight-bold">Email:</span> arraafigroup@gmail.com, <span
+                                                class="font-weight-bold">Web:</span> www.arraafigroup.com
+                                        </p>
+                                    </div>
                                 </div>
                             </div>
 
